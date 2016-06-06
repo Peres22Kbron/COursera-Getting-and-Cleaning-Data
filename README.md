@@ -2,7 +2,7 @@ Coursera Getting and Cleaning Data Project
 
 This repository contains files relevant for the course project for the Coursera course "Getting and Cleaning data". The Human Activity Recognition Using Smartphones Dataset was used for the purpose of this assignment.
 
-The repository contains the following a complete reproducible R code for the assignment and the code book explaining in details the experiment performed with the amsung Galaxy S II by Jorge L. Reyes-Ortiz and co-workers.
+The repository contains the following a complete reproducible R code for the assignment, the code book explaining in details the experiment performed with the amsung Galaxy S II by Jorge L. Reyes-Ortiz and co-workers, and the resulted tidy dataset.
 
 For the purpose of this assignment the R script called run_analysis was created. The R code does the following
 1 - Merges the training and the test sets to create one data set.
