@@ -48,12 +48,16 @@ from<- unique(sort(df$activity))
 to<-tolower(activity_labels$activity)
 df$activity<-mapvalues(df$activity,from,to)
 
-aggregate(df,by=list(activity=df$activity,subject=df$subject),mean)
-
 #Create a second, independent tidy data set with the average of each variable 
 #for each activity and each subject.After that, remove the subject and activity
 #mean values calculated since they have no value to the assignment.
-tidy<-aggregate(df,by=list(activity=df$activity,subject=df$subject),mean)
-tidy<-tidy[,-c(3,4)]
+tidy1<-aggregate(df,by=list(subject=df$subject,activity=df$activity),mean)
+tidy1<-tidy1[,-c(3,4)]
 
-write.table(tidy,"c:/Users/Peres/Downloads/data_science_coursera/03_getting_and_cleaning_data/course_project/assignment_files/tidy.txt",sep="\t",row.names=FALSE)
+#alternatively, the same proceure can be done using dplyr package's functions
+tidy2<-df %>% 
+    arrange(subject) %>% 
+    group_by(subject,activity) %>% 
+    summarise_each(funs(mean))
+
+write.table(tidy,"c:/Users/Peres/Downloads/data_science_coursera/03_getting_and_cleaning_data/course_project/assignment_files/tidy1.txt",sep="\t",row.names=FALSE)
